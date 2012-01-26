@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" button-content="width=device-width; height=device-height; initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+    <meta name="apple-mobile-web-app-capable" button-content="yes">
+	<title>ChocolateChip-UI</title>
+	<link rel="stylesheet" <link rel="stylesheet" href="css/main.css" />
+	<style type="text/css">
+		.attention {
+			width: 920px;
+			margin: 20px auto;
+			background-color: #fffccd;
+			padding: 10px 20px;
+			border: solid 3px #b50a00;
+			color: #b50a00;
+		}
+		#announcement {
+			width: 920px;
+			margin: 20px auto 0px auto;
+			background-color: #77c4ff;
+			background-color: rgba(119,196,255,0.25);
+			border: dashed 2px rgb(155,134,96);
+			padding: 10px 20px;
+			-webkit-border-radius: 6px;
+			-moz-border-radius: 6px;
+			border-radius: 6px;
+		}
+		#announcement h2 {
+			background: transparent url("images/ccCookie.png") no-repeat left top;
+			margin: 0;
+			padding: 2px 0 6px 30px;
+			border-bottom: solid 6px #a18e80;
+			font-weight: normal;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+	</style>
+	<script src="scripts/chocolatechip-doc-1.1.0.js" type="text/javascript"></script>
+	<script src="scripts/emile.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$.ready(function() {
+			var announcement = $("#announcement");
+			$.delay(function() {
+				announcement.style.overflow = "hidden";
+				emile('announcement', 'height:0px; padding: 0px; border-width: 0px; font-size: 0px; line-height: 0px; opacity: 0;', {
+    				duration: 1000,
+    				after: function(){
+    						emile('announcement', 'margin: 0px;', {
+    							duration: 500
+    						});
+    					}
+    				}
+    			);
+  			}, 20000); 
+		});
+	</script>
+
+</head>
+<body id="main">
+<div id="header">
+	<div id="header-content">
+		<h1>ChocolateChip-UI</h1>
+		<h2>Web 应用程序开发框架</h2>
+		<h3>It's tiny, but delicious</h3>
+		<img id="itbd" src="images/itbd.png" alt="It's tiny, but delicious" width="247" height="79">
+	</div>
+</div>
+<div id="nav">
+	<ul class="menu">
+		<li class="selected">首页</li>
+		<li><a href="downloads.html" title="点击下载 ChocolateChip-UI">下载</a></li>
+		<li><a href="tutorials.html" title="学习如何使用 ChococlateChip-UI 快速高效地开发 Web 应用程序">教程</a></li>
+		<li><a href="documentation.html" title="阅读框架的详细文档">文档</a></li>
+		<li><a href="snippets.html" title="使用这些小模板在 IDE 中快速创建应用程序">小模板</a></li>
+		<li id="chuiAbout" title='告诉您为什么、什么时候和谁开发了这个框架。'><a href="about.html">关于我们</a></li>
+	</ul>
+</div>
+<!--[if IE lt 9]>
+	<div class="attention">
+		<h2>注意！您的浏览器已经过时了！</h2>
+		<p>本网站主要关注于开发支持最新移动设备的移动 Web 应用程序，包括 iOS、Android、Blackberry OS 和 WebOS。因此，浏览器至少需要支持当前 Web 标准。您的浏览器还达不到这个要求。因此，网站功能可能无法在您的浏览器上正常显示。我们建议您使用更新的浏览器。由于您目前使用的是 IE 浏览器，您最好尽快升级浏览器。</p>
+	</div>
+<![endif]-->
+
+<!-- Beta Announcement -->
+<div id="announcement">
+	<h2>版本 1.0</h2>
+	<p>对！就是这个版本！几个月来，我努力优化 ChocolateChip-UI，尽力使之成为最优秀的 Webkit 平台移动 Web 应用程序开发框架。这个版本已经针对 iOS 5 进行了优化。</p>
+	<h3>jQuery Port 已经发布</h3>
+	<p>现在 ChocolateChip-UI 已经支持 jQuery。</p>
+	<h3>ChocolateChip-UI 支持 Zepto</h3>
+	<p>ChocolateChip-UI 现在支持微框架 Zepto。</p>
+</div>
+<div id="content">
+<div class="primary-section">
+	<h2>ChocolateChip 现在变成 ChUI（发音是“chewy”）</h2>
+	<p>ChocolateChip-UI 框架内置了布局和小部件功能，可用于快速开发移动 Web 应用程序。有时候，应用程序不支持脚本。开发者只需要创建标记代码，ChocolateChip-UI 
+	会帮您添加原本用脚本实现的功能，如导航列表、返回等。另外，我们有时候需要通过 JavaScript 
+	初始化小部件。这样会增加应用程序获取数据的开发难度。因为我们目标是使程序尽可能轻量，ChocolateChip-UI 
+	在创建小部件和控件时，完全不需要使用图像，所有元素都由 WAML 和 CSS 创建。ChocolateChip-UI 
+	使用矢量图像 SVG 创建按钮的图标。这意味着，Web 应用程序不受分辨率的限制，绝对简洁！欢迎使用最新的 ChUI ChocolateChip。</p>
+	
+	<h3>ChocolateChip-UI 已支持 jQuery</h3>
+	<p>ChocolateChip-UI 已经支持 jQuery。如果您正在使用 jQuery，那么您可以使用这个版本。请从 Github 
+	下载框架，然后通过例子学习框架的使用方法。如果您之前使用了普通版本的 ChocolateChip-UI，并且想转换到 jQuery 
+	版本，那么请仔细学习例子。由于 ChocolateChip 和 jQuery 底层有一定的区别，所以有一些控件回调函数的数据访问方法已经发生变化。请从 
+	Github 下载 <a href="https://github.com/rbiggs/chocolatechip-ui-jq">jQuery 版 ChocolateChip-UI</a>。</p>
+	
+	<h3>ChocolateChip-UI 已支持 Zepto</h3>
+	<p>ChocolateChip-UI 已经支持 JavaScript 微框架 Zepto。如果您喜欢一个超小且专业的 JavaScript 
+	框架进行移动开发，但是又需要一些前端外观体验，那么这个版本正好适合您使用。ChocolateChip-UI 的 Zepto 版本是一种强大但轻量的 Web 
+	应用程序开发框架。请从 Github 下载 <a href="https://github.com/rbiggs/chocolatechip-ui-zepto">Zepto 版 ChocolateChip-UI</a>。</p>
+<div>
+<br><br>
+	<h2>布局与控件展示</h2>
+	<img alt="" src="/screenshots/buttons.png">
+	<img alt="" src="/screenshots/activity_indicator-1.png">
+	<img alt="" src="/screenshots/advanced_tableview-2.png">
+	<img alt="" src="/screenshots/advanced_tableview-4.png">
+	<img alt="" src="/screenshots/advanced_tableview-8.png">
+	<img alt="" src="/screenshots/advanced_tableview-9.png">
+	<img alt="" src="/screenshots/deletion_list-3.png">
+	<img alt="" src="/screenshots/paging_control-2.png">
+	<img alt="" src="/screenshots/SelectList.png">
+	<img alt="" src="/screenshots/actionsheet-2.png">
+	<img alt="" src="/screenshots/popup-2.png">
+	<img alt="" src="/screenshots/switchcontrol.png">
+	<img alt="" src="/screenshots/tabbar-2.png">
+	<img alt="" src="/screenshots/tableview-simple-grouped-3.png">
+	<img alt="" src="/screenshots/tableview-simple-grouped-4.png">
+	<img alt="" src="/screenshots/splitview-2.png">
+	<img alt="" src="/screenshots/splitview-4.png">
+</div>	
+</div>
+<div class="secondary-section">
+    <h2>本地化</h2>
+    <p>如果您擅长德语、法语、西班牙语、意大利语、日语、中文或其他语言，并且乐意帮助翻译本网站及框架文档和教程，请 
+	<a href="mailto:chocolatechipui@gmail.com">联系我们</a>。我会向您提供翻译材料，并且会给网站增加您翻译语言的浏览选项。感谢关注！</p>
+    <p>&nbsp</p>
+	<h2>温馨提示</h2>
+	<p>ChocolateChip 面向安装了基于 Webkit 的浏览器的移动设备。因此，在开发过程中，您可以在桌面电脑上使用任何基于 Webkit 
+	的浏览器，其中包括 Google Chrome 和 Apple Safari。ChocolateChip-UI 
+	提供了一些桌面兼容性，以方便测试。您也可以使用模拟器。最后，您必须在真实设备上测试，毕竟桌面浏览器与模拟器之间存在一些细微差别。</p>
+</div>
+</div>
+
+</body>
+</html>
