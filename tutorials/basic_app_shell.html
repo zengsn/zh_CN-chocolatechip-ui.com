@@ -1,0 +1,83 @@
+﻿<h1>基础应用框架</h1>
+
+<p>ChocolateChip 使用一些特殊标记代码作为所有 Web 应用的框架。其中大多数标签都是 WAML 特有和专用的。WAML 是 ChocolateChip-UI 
+用于生成应用的标记语言。ChocolateChip-UI 基于 HTML5 构建应用。因此，应用总是以一个正确的 HTML5 开始。下面是创建一个 Web 应用的最简单结构：</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" manifest="cache.manifest"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width"&gt;
+    &lt;meta name="apple-mobile-web-app-capable" content="yes"&gt;
+    &lt;link rel="apple-touch-startup-image" href="startup.png"&gt;
+    &lt;link rel="apple-touch-icon" href="app-icon.png"/&gt;
+    &lt;link rel="shortcut icon" href="favicon.ico"&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;link rel="stylesheet" href="chui.css"&gt;
+    &lt;style type="text/css"&gt;
+        /* Local Styles Here */
+
+    &lt;/style&gt;
+    &lt;script src="chocolatechip.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script src="chui.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
+        /* Local JavaScript Here */
+        $.ready(function() {
+
+        });
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;app&gt;
+        &lt;view id="main" ui-background-style="striped" ui-navigation-status="current"&gt;
+
+        &lt;/view&gt;
+    &lt;/app&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>这些标记代码设置了视口元数据标签，所以应用能够自动适应整个屏幕的大小。如果希望使用 cache.manifest 
+作为离线存储，那么您可以保留它，否则可以将它删除。chui.css 的链接是必需的，它定义了 ChocolateChip-UI 
+控件的默认样式和动画效果。ChocolateChip.js 和 ChUI.js 是 ChocolateChip-UI 实现控件的交互与功能的脚本。这个基本框架还包含本地样式和本地 JavaScript 脚本。</p>
+
+<p>上面的标记代码中包含了 app 和 view 标签。app 标签是 Web 应用的根元素。ChocolateChip-UI Web 只有唯一一个 app 
+标签，而且它一定是文档 body 标签的第一个子元素。app 标签下可以包含任意多个 view。作为应用默认加载视图的 view 
+应该设置属性 <em>ui-navigation-status="current"</em>。这个 view 必须将 id 设置为 <em>#main</em>。其他视图可以使用这个 id 
+返回默认视图。您在根据需要添加其他视图并为之设置相应的 id。在这段代码中，视图设置了 <em>ui-background-style="striped</em> 
+属性，使用默认的垂直条纹背景样式。</p>
+
+<p>使用上面的标记代码创建 Web 应用，您需要执行一些操作。您可以直接在视图上添加数据，或者添加一个导航栏（navbar）、工具栏（toolbar）或子视图（subview），实现更多的应用数据交互方式。如果给应用添加子视图，您还需要加入一个可滚动面板（scrollpanel），这样用户可以垂直滚动界面，访问屏幕高度范围之外的数据。如果您使用如下所示代码，那么 ChocolateChip-UI 
+会自动实现这种滚动效果。</p>
+
+<pre><code>&lt;view&gt;
+    &lt;subview&gt;
+        &lt;scrollpanel&gt;
+
+        &lt;/scrollpanel&gt;
+    &lt;/subview&gt;    
+&lt;/view&gt;
+</code></pre>
+
+<p>移动 Web 应用通常会在顶部添加一个导航栏，也可能在屏幕底部带有一个工具栏。ChocolateChip-UI 使用对应的标签、属性和布局，很容易实现这些界面功能。注意，subview 
+标签设置了 <em>ui-associations</em> 属性，表示它带有一个导航栏和一个底部工具栏。ChocolateChip-UI 
+会根据这些标签和属性安排导航栏、子视图和工具栏，这样在方向发生变化时，它们仍然能够恢复到正确的尺寸关系，同时允许用户通过滚动访问子视图内容。将上面的视图加到模板中，就能够得到一个实现了基本功能的基础应用框架。您只需要确定将数据添加到子视图的方法。作为开发者，您可以选择通过 Ajax 调用、数据查询或 Web 服务实现。一切由您决定。
+</p>
+
+<pre><code>&lt;view id="main" ui-background-style="striped" ui-navigation-status="current"&gt;
+    &lt;navbar&gt;
+        &lt;h1&gt;Tite&lt;/h1&gt;
+    &lt;/navbar&gt;
+    &lt;subview ui-associations="withNavBar withBottomToolbar"&gt;
+        &lt;scrollpanel&gt;
+
+        &lt;/scrollpanel&gt;
+    &lt;/subview&gt;
+    &lt;toolbar&gt;
+    &lt;/toolbar&gt;
+&lt;/view&gt;
+</code></pre>
+
+<p>要学习更多的开发方法，请参考教程 “导航栏与工具栏” 关于子视图的介绍，以及 ChUI.css 和 WAML 的相关文档。</p>
+
